@@ -1,0 +1,25 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+    <title>{{ post.title }}</title>
+{% endblock title %}
+
+{% block background %}
+    <div class="custom_blog_background">
+{% endblock background %}
+
+{% block content %}
+
+    <div class="container col-xxl-8 px-4 py-5 ">
+        <div class="row flex-lg-row-reverse align-items-center g-5 p-5">
+            <div class="col-lg-12 mt-4">
+                <div class="mb-5">
+                    <h1 class="display-5 fw-bold lh-1 mb-2">{{ post.title }}</h1>
+                    <span class="text-muted">{{ post.pub_date|date:"d m Y" }}</span>
+                </div>
+                <p class="lead">{{ post.post }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

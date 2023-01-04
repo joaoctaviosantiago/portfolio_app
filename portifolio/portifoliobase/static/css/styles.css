@@ -1,0 +1,138 @@
+p, h1, h2, h3, h4, h5, h6 {
+    color: #404040;
+}
+
+/* NAV */
+
+.custom_nav_text {
+    color: #404040 !important;
+}
+
+.custom_nav_text:hover {
+    color: #313131 !important;
+}
+
+.custom_index_background {
+    background-color: #6FDCBF;
+    min-height: 100vh;
+}
+
+/* END NAV */
+
+
+
+/* HERO */
+
+.custom_hero_btn {
+    color: #F6F4F6;
+    background-color: #404040 !important;
+}
+
+.custom_hero_btn:hover {
+    color: #F6F4F6;
+    background-color: #313131 !important;
+}
+
+/* END HERO */
+
+
+
+
+/* PROJECTS */
+
+.custom_projects_background {
+    background-color: #B2B2D8 !important;
+    min-height: 100vh;
+}
+
+.card_background {
+    background-color: #F6F4F6 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.card_background:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.custom_btn_color {
+    color: #F6F4F6 !important;
+    background-color: #404040 !important;
+}
+
+.custom_btn_color:hover {
+    background-color: #313131 !important;
+}
+
+.custom_page_colors {
+    color: #404040;
+    background-color: #F6F4F6 !important;
+}
+
+.custom_page_colors:hover {
+    color: #F6F4F6;
+    background-color: #313131 !important;
+}
+
+.current_custom_page_colors {
+    color: #F6F4F6;
+    background-color: #404040 !important;
+}
+
+.current_custom_page_colors:hover {
+    color: #F6F4F6;
+    background-color: #404040 !important;
+}
+
+/* END PROJECTS */
+
+
+
+/* PROJECT */
+
+.custom_btn_outline {
+    max-width: fit-content;
+    border: 2px solid #404040;
+    background-color: transparent;
+    color: #404040;
+}
+
+.custom_thumbnail {
+    background-color: #404040 !important;
+    border-color: #404040 !important;
+}
+
+
+/* END PROJECT */
+
+
+/* BLOG LIST */
+
+.custom_blog_background {
+    background-color: #FEF8B4;
+    min-height: 100vh;
+}
+
+.blog_list {
+    list-style: none;
+}
+
+.blog_list_item {
+    text-decoration: none;
+    color: #404040 !important;
+}
+
+.blog_list_item:hover {
+    color: #313131 !important;
+}
+
+/* BLOG LIST END */
+
+
+/* CONTACT */
+
+.custom_contact_background {
+    background-color: #F2C3C0;
+    min-height: 100vh;
+}
+
+/* END CONTACT */

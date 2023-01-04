@@ -1,0 +1,43 @@
+{% extends "base_template.html" %}
+
+{% load i18n %}
+
+{% block title %}
+    <title>João Octávio Santiago | {% trans 'Contact' %}</title>
+{% endblock title %}
+
+{% block background %}
+<div class="custom_contact_background">
+{% endblock background %}
+
+{% block content %}
+    <div class="container d-flex flex-column align-items-center">
+        <div class="text-center text-uppercase my-5 display-3">
+            <h1>{% trans 'Contact' %}</h1>
+        </div>
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+                <p class="lead mb-1">{% trans "Name" %}</p>
+                {{ form.name }}
+            </div>
+            <div class="form-group mb-3">
+                <p class="lead mb-1">Email</p>
+                {{ form.email }}
+            </div>
+            <div class="form-group mb-3">
+                <p class="lead mb-1">{% trans "Title" %}</p>
+                {{ form.title }}
+            </div>
+            <div class="form-group mb-3">
+                <p class="lead mb-1">{% trans "Message" %}</p>
+                {{ form.message }}
+            </div>
+            <input class="btn custom_btn_color mb-3" type="submit" value="{% trans 'Submit' %}">
+        </form>
+
+    </div>
+{% endblock content %}
+
+</div>

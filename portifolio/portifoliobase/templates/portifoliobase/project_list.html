@@ -1,0 +1,62 @@
+{% extends "base_template.html" %}
+{% load i18n %}
+
+{% block title %}
+    <title>João Octávio Santiago | {% trans 'Projects' %}</title>
+{% endblock title %}
+
+{% block background %}
+    <div class="custom_projects_background">
+{% endblock background %}
+
+{% block content %}
+    <div id="projects" class="container">
+        <div class="text-center text-uppercase my-5 display-3">
+            <h1>{% trans 'My Projects' %}</h1>
+        </div>
+
+        {% if project_list %}
+            <div class="row justify-content-center">
+                {% for project in project_list %}
+                    <div class="card card_background col-md-6 col-lg-4 mb-5 mx-2 px-0" style="width: 18rem;">
+                        <img src="{% if project.image %}
+                        {{ project.image.url}}
+                        {% endif %}" class="card-img-top" alt="project image">
+                        <div class="card-body text-center">
+                            <h5 class="card-title py-2">{{ project.name }}</h5>
+                            <a href="{{ project.get_absolute_url }}" class="btn custom_btn_color">{% trans 'See project' %}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        
+        {% else %}
+            <div class="d-flex justify-content-center align-items-center">
+                <p>{% trans 'No projects yet.' %}</p>
+            </div>
+        {% endif %}
+
+                <!-- PAGINATION -->
+
+            <div class="d-flex justify-content-center mt-3">
+                {% block pagination %}
+                    {% if is_paginated %}
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link custom_page_colors" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></li>
+                            {% endif %}
+                            {% for page_number in page_obj.paginator.page_range %}
+                                <li class="page-item"><a class="page-link custom_page_colors {% if page_number == page_obj.number %} current current_custom_page_colors {% endif %}" href="{% if page_number == 1 %} {% url 'projects' %} {% else %} {{ request.path }}?page={{ page_number }} {% endif %}">{{ page_number }}</a></li>
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item"><a class="page-link custom_page_colors" href="{{ request.path }}?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    {% endif %}
+                {% endblock %}
+            </div> 
+        <!-- PAGINATION -->
+    </div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+    <title>{{ project.name }}</title>
+{% endblock title %}
+
+{% block background %}
+    <div class="custom_projects_background">
+{% endblock background %}
+
+{% block content %}
+
+    <div class="container col-xxl-8 px-4 py-5 ">
+        <div class="row flex-lg-row-reverse align-items-center g-5 p-5">
+            <div class="col-12 col-sm-12 col-lg-6">
+                <img src="{% if project.image %}
+                {{ project.image.url}}
+                {% endif %}" class="d-block mx-lg-auto img-fluid w-100 img-thumbnail custom_thumbnail" alt="Bootstrap Themes" loading="lazy" width="700" height="500">
+            </div>
+            <div class="col-lg-6 mt-4">
+                <h1 class="display-5 fw-bold lh-1 mb-3">{{ project.name }}</h1>
+                <p class="lead">{{ project.description }}</p>
+                <div class="d-flex flex-wrap">
+                    {% for tech in project.technologies.all %}
+                        <div class="custom_btn_outline py-2 px-3 fw-bold rounded m-1">
+                            {{ tech }}
+                        </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends "base_template.html" %}
+{% load i18n %}
+
+{% block title %}
+    <title>João Octávio Santiago | Blog</title>
+{% endblock title %}
+
+{% block background %}
+    <div class="custom_blog_background">
+{% endblock background %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="text-center text-uppercase my-5 display-3">
+            <h1>{% trans 'My blog' %}</h1>
+        </div>
+
+        {% if post_list %}
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <ul class="blog_list">
+                {% for post in post_list %}
+                    <div class="d-flex justify-content-start align-items-center">
+                        <li class="px-3 h2"><a class="blog_list_item" href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                        <span class="text-muted">{{ post.pub_date|date:"d m Y" }}</span>
+                    </div>
+                {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <div class="d-flex justify-content-center align-items-center">
+                <p>{% trans 'No posts yet.' %}</p>
+            </div>
+        {% endif %}
+        
+        <!-- PAGINATION -->
+
+        <div class="d-flex justify-content-center mt-3">
+            {% block pagination %}
+                {% if is_paginated %}
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link custom_page_colors" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></li>
+                            {% endif %}
+                            {% for page_number in page_obj.paginator.page_range %}
+                                <li class="page-item"><a class="page-link custom_page_colors {% if page_number == page_obj.number %} current current_custom_page_colors {% endif %}" href="{% if page_number == 1 %} {% url 'post-list-en' %} {% else %} {{ request.path }}?page={{ page_number }} {% endif %}">{{ page_number }}</a></li>
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item"><a class="page-link custom_page_colors" href="{{ request.path }}?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    {% endif %}
+                {% endblock %}
+            </div> 
+        <!-- PAGINATION -->
+
+    </div>
+
+{% endblock content %}

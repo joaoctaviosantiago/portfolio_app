@@ -1,0 +1,22 @@
+{% load i18n %}
+<head>
+    {% load static %}
+</head>
+
+
+    <div id="home" class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row align-items-center gx-5 pt-5">
+            <div class="col-12 col-sm-12 col-lg-6">
+                <img src="{% static 'images/hero_image.svg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="700" height="500">
+            </div>
+            <div class="col-lg-6 mt-lg-0 mt-5">
+                <h1 class="display-5 fw-bold lh-1 mb-3">{% trans "Hi, I'm João Octávio" %}</h1>
+                <p class="lead">{% trans "I'm a Back-End developer and Computer Science student working primarily with the Django framework." %}</p>
+                <div class="d-flex justify-content-center pt-4">
+                    <a class="btn fw-bold px-3 py-2 custom_hero_btn" href="{% url 'projects' %}">{% trans 'Check my projects' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
